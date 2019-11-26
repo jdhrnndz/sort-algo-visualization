@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: deploy
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          
+      - name: Deploy
         run: npm run deploy
     
