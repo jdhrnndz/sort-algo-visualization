@@ -12,6 +12,12 @@ jobs:
     
     steps:
       - uses: actions/checkout@v1
+        
+      - name: Setup git
+        run: |
+          git config user.name "jdhrnndz"
+          git config user.email "johndeniellehernandez@gmail.com"
+        
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
