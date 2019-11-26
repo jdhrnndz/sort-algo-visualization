@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "jdhrnndz.github.io/sort-algo-visualization/static/css/main.b100e6da.chunk.css",
-    "main.js": "jdhrnndz.github.io/sort-algo-visualization/static/js/main.8f440378.chunk.js",
-    "main.js.map": "jdhrnndz.github.io/sort-algo-visualization/static/js/main.8f440378.chunk.js.map",
-    "runtime-main.js": "jdhrnndz.github.io/sort-algo-visualization/static/js/runtime-main.622e2d1b.js",
-    "runtime-main.js.map": "jdhrnndz.github.io/sort-algo-visualization/static/js/runtime-main.622e2d1b.js.map",
-    "static/js/2.ce745347.chunk.js": "jdhrnndz.github.io/sort-algo-visualization/static/js/2.ce745347.chunk.js",
-    "static/js/2.ce745347.chunk.js.map": "jdhrnndz.github.io/sort-algo-visualization/static/js/2.ce745347.chunk.js.map",
-    "index.html": "jdhrnndz.github.io/sort-algo-visualization/index.html",
-    "precache-manifest.deddcfeddb8ebd62e753ed079a2e738c.js": "jdhrnndz.github.io/sort-algo-visualization/precache-manifest.deddcfeddb8ebd62e753ed079a2e738c.js",
-    "service-worker.js": "jdhrnndz.github.io/sort-algo-visualization/service-worker.js",
-    "static/css/main.b100e6da.chunk.css.map": "jdhrnndz.github.io/sort-algo-visualization/static/css/main.b100e6da.chunk.css.map"
+    "main.css": "/sort-algo-visualization/static/css/main.b100e6da.chunk.css",
+    "main.js": "/sort-algo-visualization/static/js/main.7faaaabc.chunk.js",
+    "main.js.map": "/sort-algo-visualization/static/js/main.7faaaabc.chunk.js.map",
+    "runtime-main.js": "/sort-algo-visualization/static/js/runtime-main.1393b762.js",
+    "runtime-main.js.map": "/sort-algo-visualization/static/js/runtime-main.1393b762.js.map",
+    "static/js/2.ce745347.chunk.js": "/sort-algo-visualization/static/js/2.ce745347.chunk.js",
+    "static/js/2.ce745347.chunk.js.map": "/sort-algo-visualization/static/js/2.ce745347.chunk.js.map",
+    "index.html": "/sort-algo-visualization/index.html",
+    "precache-manifest.cfeb50b5c768b8c6359823fec9328bb6.js": "/sort-algo-visualization/precache-manifest.cfeb50b5c768b8c6359823fec9328bb6.js",
+    "service-worker.js": "/sort-algo-visualization/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/sort-algo-visualization/static/css/main.b100e6da.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.622e2d1b.js",
+    "static/js/runtime-main.1393b762.js",
     "static/js/2.ce745347.chunk.js",
     "static/css/main.b100e6da.chunk.css",
-    "static/js/main.8f440378.chunk.js"
+    "static/js/main.7faaaabc.chunk.js"
   ]
 }
