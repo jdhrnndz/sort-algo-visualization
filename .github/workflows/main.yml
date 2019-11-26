@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  publish:
+    name: deploy to github pages
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: deploy
+        run: npm run deploy
+    
