@@ -4,7 +4,7 @@ import partialShuffle from './utils/partialShuffle';
 import sorters from './sorters';
 import usePrevious from './hooks/usePrevious';
 
-const TILE_SIZE = 50;
+const TILE_SIZE = 25;
 const TILE_PER_ROW = Math.floor(window.innerWidth / TILE_SIZE);
 const ROW_COUNT = Math.floor(window.innerHeight / TILE_SIZE);
 
@@ -67,7 +67,8 @@ const draw = (canvasRef, sort, setRequestId) => () => {
 
   for (let i = 0; i < ROW_COUNT; i++) {
     for (let j = 0; j < TILE_PER_ROW; j++) {
-      context.fillStyle = `hsl(${result.value[j]}, 100%, 50%)`;
+      context.fillStyle = `hsl(${(result.value[j] / TILE_PER_ROW) *
+        360}, 100%, 50%)`;
       context.fillRect(j * TILE_SIZE, i * TILE_SIZE, TILE_SIZE, TILE_SIZE);
     }
   }
