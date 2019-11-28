@@ -1,6 +1,7 @@
 import bubbleSort from './bubbleSort';
 import combSort from './combSort';
 import insertionSort from './insertionSort';
+import selectionSort from './selectionSort';
 
 const sorters = {
   bubblesort: {
@@ -14,6 +15,10 @@ const sorters = {
   insertionsort: {
     title: 'Insertion Sort',
     fn: insertionSort,
+  },
+  selectionsort: {
+    title: 'Selection Sort',
+    fn: selectionSort,
   },
 };
 
