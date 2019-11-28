@@ -1,6 +1,7 @@
 import bogoSort from './bogoSort';
 import bubbleSort from './bubbleSort';
 import combSort from './combSort';
+import heapSort from './heapSort';
 import insertionSort from './insertionSort';
 import mergeSort from './mergeSort';
 import quickSortHoare from './quickSortHoare';
@@ -19,6 +20,10 @@ const sorters = {
   combsort: {
     title: 'Comb Sort',
     fn: combSort,
+  },
+  heapSort: {
+    title: 'Heap Sort',
+    fn: heapSort,
   },
   insertionsort: {
     title: 'Insertion Sort',
