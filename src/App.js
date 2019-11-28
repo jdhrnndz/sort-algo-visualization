@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 import partialShuffle from './utils/partialShuffle';
-import bubbleSort from './sorters/bubbleSort';
-import combSort from './sorters/combSort';
-import insertionSort from './sorters/insertionSort';
+import sorters from './sorters';
 import usePrevious from './hooks/usePrevious';
 
 const TILE_SIZE = 50;
@@ -22,25 +20,18 @@ function App() {
   const prevRequestId = usePrevious(requestId);
 
   React.useEffect(() => {
-    let sort;
-
-    switch (sortAlgo) {
-      case 'insertionsort':
-        sort = insertionSort(initialData);
-        break;
-      case 'combsort':
-        sort = combSort(initialData);
-        break;
-      case 'bubblesort':
-      default:
-        sort = bubbleSort(initialData);
-        break;
-    }
+    let sort = sorters[sortAlgo].fn(initialData);
 
     window.cancelAnimationFrame(prevRequestId);
 
     draw(canvasRef, sort, setRequestId)();
   }, [sortAlgo]);
+
+  const options = [];
+
+  for (const key in sorters) {
+    options.push(<option value={key}>{sorters[key].title}</option>);
+  }
 
   return (
     <div className="App">
@@ -51,9 +42,7 @@ function App() {
           value={sortAlgo}
           onChange={e => setSortAlgo(e.target.value)}
         >
-          <option value="bubblesort">Bubble Sort</option>
-          <option value="combsort">Comb Sort</option>
-          <option value="insertionsort">Insertion Sort</option>
+          {options}
         </select>
         <canvas
           ref={canvasRef}
