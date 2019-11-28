@@ -1,3 +1,4 @@
+import bogoSort from './bogoSort';
 import bubbleSort from './bubbleSort';
 import combSort from './combSort';
 import insertionSort from './insertionSort';
@@ -7,6 +8,10 @@ import quickSortLomuto from './quickSortLomuto';
 import selectionSort from './selectionSort';
 
 const sorters = {
+  bogoSort: {
+    title: 'Bogo Sort',
+    fn: bogoSort,
+  },
   bubblesort: {
     title: 'Bubble Sort',
     fn: bubbleSort,
