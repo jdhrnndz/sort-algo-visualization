@@ -7,6 +7,7 @@ import mergeSort from './mergeSort';
 import quickSortHoare from './quickSortHoare';
 import quickSortLomuto from './quickSortLomuto';
 import selectionSort from './selectionSort';
+import shellSort from './shellSort';
 
 const sorters = {
   bogoSort: {
@@ -44,6 +45,10 @@ const sorters = {
   selectionsort: {
     title: 'Selection Sort',
     fn: selectionSort,
+  },
+  shellSort: {
+    title: 'Shell Sort',
+    fn: shellSort,
   },
 };
 
