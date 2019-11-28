@@ -6,6 +6,7 @@ import insertionSort from './insertionSort';
 import mergeSort from './mergeSort';
 import quickSortHoare from './quickSortHoare';
 import quickSortLomuto from './quickSortLomuto';
+import radixSortLSD from './radixSortLSD';
 import selectionSort from './selectionSort';
 import shellSort from './shellSort';
 
@@ -41,6 +42,10 @@ const sorters = {
   quickSortLomuto: {
     title: 'Quick Sort (Lomuto)',
     fn: quickSortLomuto,
+  },
+  radixSortLSD: {
+    title: 'Radix Sort (LSD)',
+    fn: radixSortLSD,
   },
   selectionsort: {
     title: 'Selection Sort',
