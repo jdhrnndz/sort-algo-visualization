@@ -1,3 +1,5 @@
+import swap from '../utils/swap';
+
 function* bubbleSort(values) {
   let swapped = false;
   for (let i = 0; i < values.length; i++) {
@@ -13,10 +15,6 @@ function* bubbleSort(values) {
       return;
     }
   }
-}
-
-function swap(array, firstIdx, secondIdx) {
-  [array[firstIdx], array[secondIdx]] = [array[secondIdx], array[firstIdx]];
 }
 
 export default bubbleSort;

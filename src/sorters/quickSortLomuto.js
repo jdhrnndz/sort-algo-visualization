@@ -1,3 +1,5 @@
+import swap from '../utils/swap';
+
 function* quickSortLomuto(values) {
   yield* _quickSortLomuto(values, 0, values.length - 1);
 }
@@ -31,10 +33,6 @@ function* _partitionLomuto(values, left, right) {
   swap(values, i + 1, right);
   yield;
   return i + 1;
-}
-
-function swap(array, firstIdx, secondIdx) {
-  [array[firstIdx], array[secondIdx]] = [array[secondIdx], array[firstIdx]];
 }
 
 export default quickSortLomuto;

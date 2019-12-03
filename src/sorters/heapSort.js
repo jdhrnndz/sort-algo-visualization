@@ -1,3 +1,5 @@
+import swap from '../utils/swap';
+
 function* heapSort(arr) {
   for (let i = arr.length; i >= 0; i--) {
     yield* heapify(arr, arr.length, i);
@@ -22,10 +24,6 @@ function* heapify(arr, n, i) {
     yield arr;
     yield* heapify(arr, n, largest);
   }
-}
-
-function swap(array, firstIdx, secondIdx) {
-  [array[firstIdx], array[secondIdx]] = [array[secondIdx], array[firstIdx]];
 }
 
 export default heapSort;

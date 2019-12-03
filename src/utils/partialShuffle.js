@@ -1,6 +1,6 @@
-const partialShuffle = (array, itemCount) => {
-  const PARTIAL_SHUFFLE_FACTOR = Math.floor(Math.sqrt(itemCount));
+const partialShuffle = array => {
   const len = array.length;
+  const PARTIAL_SHUFFLE_FACTOR = Math.floor(Math.sqrt(len));
 
   for (
     let i = 0, minIndex = 0, maxIndex = PARTIAL_SHUFFLE_FACTOR;
@@ -8,8 +8,7 @@ const partialShuffle = (array, itemCount) => {
     i++
   ) {
     let newIndex =
-      (Math.floor(Math.random() * PARTIAL_SHUFFLE_FACTOR) + minIndex) %
-      itemCount;
+      (Math.floor(Math.random() * PARTIAL_SHUFFLE_FACTOR) + minIndex) % len;
     let a = array[newIndex];
     array[newIndex] = array[i];
     array[i] = a;

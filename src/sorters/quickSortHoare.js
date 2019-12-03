@@ -1,3 +1,5 @@
+import swap from '../utils/swap';
+
 function* quickSortHoare(values) {
   yield* _quickSortHoare(values, 0, values.length - 1);
 }
@@ -29,10 +31,6 @@ function* _partitionHoare(values, left, right) {
     swap(values, left++, right--);
     yield;
   }
-}
-
-function swap(array, firstIdx, secondIdx) {
-  [array[firstIdx], array[secondIdx]] = [array[secondIdx], array[firstIdx]];
 }
 
 export default quickSortHoare;

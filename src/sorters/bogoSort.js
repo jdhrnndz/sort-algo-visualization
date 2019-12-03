@@ -1,6 +1,8 @@
+import randomShuffle from '../utils/randomShuffle';
+
 function* bogoSort(values) {
   while (!isSorted(values)) {
-    shuffle(values, true);
+    randomShuffle(values, true);
     yield values;
   }
 }
@@ -10,18 +12,6 @@ function isSorted(values) {
     if (values[i] > values[i + 1]) return false;
   }
   return true;
-}
-
-function shuffle(values) {
-  const len = values.length;
-  for (let i = 0; i < len; i++) {
-    const newIndex = Math.floor(Math.random() * len);
-    swap(values, i, newIndex);
-  }
-}
-
-function swap(array, firstIdx, secondIdx) {
-  [array[firstIdx], array[secondIdx]] = [array[secondIdx], array[firstIdx]];
 }
 
 export default bogoSort;

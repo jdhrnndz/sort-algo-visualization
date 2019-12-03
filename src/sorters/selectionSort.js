@@ -1,3 +1,5 @@
+import swap from '../utils/swap';
+
 function* selectionSort(values) {
   for (let i = 0; i < values.length - 1; i++) {
     let minIdx = i;
@@ -9,10 +11,6 @@ function* selectionSort(values) {
     swap(values, i, minIdx);
     yield values;
   }
-}
-
-function swap(array, firstIdx, secondIdx) {
-  [array[firstIdx], array[secondIdx]] = [array[secondIdx], array[firstIdx]];
 }
 
 export default selectionSort;
