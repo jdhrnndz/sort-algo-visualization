@@ -6,17 +6,21 @@ function Animation(props) {
 
   const updateAnimationState = React.useCallback(() => {
     const results = [];
+    let finishedSorter = 0;
     props.sorters.forEach((sorter, index) => {
       const result = sorter.next();
 
       if (!result.done) {
         results[index] = result.value;
+      } else {
+        finishedSorter++;
       }
     });
 
-    setData(results);
-
-    requestFrameRef.current = requestAnimationFrame(updateAnimationState);
+    if (finishedSorter < props.sorters.length) {
+      setData(results);
+      requestFrameRef.current = requestAnimationFrame(updateAnimationState);
+    }
   }, [props.sorters]);
 
   React.useEffect(() => {

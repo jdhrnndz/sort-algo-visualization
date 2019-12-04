@@ -29,15 +29,30 @@ const draw = (canvasRef, data, size) => {
 
   context.save();
   context.imageSmoothingEnabled = true;
+  context.strokeStyle = 'white';
+
+  const halfSize = size / 2;
+  const paddedSize = halfSize - 2;
+  const fullCircle = 2 * Math.PI;
 
   for (let i = 0; i < datasetCount; i++) {
     if (!data[i]) continue;
 
     const dataCount = data[i].length;
+    const rem = i % 2;
 
     for (let j = 0; j < dataCount; j++) {
+      context.beginPath();
+      context.arc(
+        j * size + halfSize * rem,
+        i * size + halfSize,
+        paddedSize,
+        0,
+        fullCircle
+      );
+      context.stroke();
       context.fillStyle = `hsl(${(data[i][j] / dataCount) * 320}, 65%, 55%)`;
-      context.fillRect(j * size, i * size, size, size);
+      context.fill();
     }
   }
 

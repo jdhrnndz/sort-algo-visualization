@@ -4,6 +4,8 @@ import partialShuffle from './utils/partialShuffle';
 import sorters from './sorters';
 import Animation from './components/Animation';
 import SquareCanvas from './components/SquareCanvas';
+import CircleCanvas from './components/CircleCanvas';
+import HexCanvas from './components/HexCanvas';
 import randomShuffle from './utils/randomShuffle';
 
 const TILE_SIZE = 25;
@@ -25,9 +27,25 @@ const ARRANGEMENTS = {
   },
 };
 
+const CANVASES = {
+  square: {
+    title: 'Square',
+    component: props => <SquareCanvas {...props} />,
+  },
+  circle: {
+    title: 'Circle',
+    component: props => <CircleCanvas {...props} />,
+  },
+  hex: {
+    title: 'Hexagon',
+    component: props => <HexCanvas {...props} />,
+  },
+};
+
 function App() {
   const [sortAlgo, setSortAlgo] = React.useState('combsort');
   const [arrangement, setArrangement] = React.useState('random');
+  const [shape, setShape] = React.useState('hex');
 
   const algoOptions = [];
   for (const key in sorters) {
@@ -43,6 +61,15 @@ function App() {
     arrangementOptions.push(
       <option value={key} key={ARRANGEMENTS[key].title}>
         {ARRANGEMENTS[key].title}
+      </option>
+    );
+  }
+
+  const canvasOptions = [];
+  for (const key in CANVASES) {
+    canvasOptions.push(
+      <option value={key} key={CANVASES[key].title}>
+        {CANVASES[key].title}
       </option>
     );
   }
@@ -66,9 +93,19 @@ function App() {
         >
           {arrangementOptions}
         </select>
+        <select
+          name="canvas"
+          id="canvas-select"
+          value={shape}
+          onChange={e => setShape(e.target.value)}
+        >
+          {canvasOptions}
+        </select>
         <Animation
           sorters={setupSorters(sortAlgo, arrangement, ROW_COUNT, TILE_PER_ROW)}
-          canvas={data => <SquareCanvas tileSize={TILE_SIZE} data={data} />}
+          canvas={data =>
+            CANVASES[shape].component({ tileSize: TILE_SIZE, data: data })
+          }
         />
       </div>
     </div>
