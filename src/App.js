@@ -45,7 +45,7 @@ const CANVASES = {
 function App() {
   const [sortAlgo, setSortAlgo] = React.useState('combsort');
   const [arrangement, setArrangement] = React.useState('random');
-  const [shape, setShape] = React.useState('hex');
+  const [shape, setShape] = React.useState('square');
 
   const algoOptions = [];
   for (const key in sorters) {
@@ -77,30 +77,34 @@ function App() {
   return (
     <div className="App">
       <div className="App-content">
-        <select
-          name="sort-algo"
-          id="sort-algo-select"
-          value={sortAlgo}
-          onChange={e => setSortAlgo(e.target.value)}
-        >
-          {algoOptions}
-        </select>
-        <select
-          name="arrangement"
-          id="arrangement-select"
-          value={arrangement}
-          onChange={e => setArrangement(e.target.value)}
-        >
-          {arrangementOptions}
-        </select>
-        <select
-          name="canvas"
-          id="canvas-select"
-          value={shape}
-          onChange={e => setShape(e.target.value)}
-        >
-          {canvasOptions}
-        </select>
+        <div className="Banner">
+          <div className="Banner-content">
+            A visualization of <em>sorts</em>
+          </div>
+          <div>
+            <span>using</span>
+            <select
+              name="sort-algo"
+              id="sort-algo-select"
+              value={sortAlgo}
+              onChange={e => setSortAlgo(e.target.value)}
+            >
+              {algoOptions}
+            </select>
+          </div>
+          <div>
+            <span className="Banner-content">with</span>
+            <select
+              name="arrangement"
+              id="arrangement-select"
+              value={arrangement}
+              onChange={e => setArrangement(e.target.value)}
+            >
+              {arrangementOptions}
+            </select>
+            <span className="Banner-content">data</span>
+          </div>
+        </div>
         <Animation
           sorters={setupSorters(sortAlgo, arrangement, ROW_COUNT, TILE_PER_ROW)}
           canvas={data =>

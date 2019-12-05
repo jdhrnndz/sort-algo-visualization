@@ -11,8 +11,8 @@ function SquareCanvas(props) {
     <div>
       <canvas
         ref={canvasRef}
-        width={window.innerWidth}
-        height={window.innerHeight}
+        width={window.innerWidth - (window.innerWidth % props.tileSize)}
+        height={window.innerHeight - (window.innerHeight % props.tileSize)}
       />
     </div>
   );
