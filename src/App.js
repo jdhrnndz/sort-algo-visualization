@@ -8,8 +8,8 @@ import CircleCanvas from './components/CircleCanvas';
 import HexCanvas from './components/HexCanvas';
 import randomShuffle from './utils/randomShuffle';
 
-const TILE_SIZE = 25;
-const TILE_PER_ROW = Math.floor(window.innerWidth / TILE_SIZE);
+const TILE_PER_ROW = 80;
+const TILE_SIZE = window.innerWidth / TILE_PER_ROW;
 const ROW_COUNT = Math.floor(window.innerHeight / TILE_SIZE);
 
 const ARRANGEMENTS = {
