@@ -5,6 +5,7 @@ function Animation(props) {
   const [data, setData] = React.useState([]);
 
   const updateAnimationState = React.useCallback(() => {
+    props.stats.begin();
     const results = [];
     let finishedSorter = 0;
     props.sorters.forEach((sorter, index) => {
@@ -17,6 +18,7 @@ function Animation(props) {
       }
     });
 
+    props.stats.end();
     if (finishedSorter < props.sorters.length) {
       setData(results);
       requestFrameRef.current = requestAnimationFrame(updateAnimationState);

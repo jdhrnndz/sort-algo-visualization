@@ -2,9 +2,12 @@ import React from 'react';
 
 function SquareCanvas(props) {
   let canvasRef = React.useRef(null);
+  let previousData = React.useRef(null);
 
   React.useEffect(() => {
-    draw(canvasRef, props.data, props.tileSize);
+    const data = JSON.parse(props.data);
+    draw(canvasRef, previousData.current, data, props.tileSize);
+    previousData.current = data;
   });
 
   return (
@@ -18,10 +21,9 @@ function SquareCanvas(props) {
   );
 }
 
-const draw = (canvasRef, data, size) => {
+const draw = (canvasRef, previousData, data, size) => {
   if (!data || data.length <= 0) return;
 
-  data = JSON.parse(data);
   const datasetCount = data.length;
 
   const canvas = canvasRef.current;
@@ -42,6 +44,13 @@ const draw = (canvasRef, data, size) => {
     const rem = i % 2;
 
     for (let j = 0; j < dataCount; j++) {
+      if (
+        previousData.length === datasetCount &&
+        previousData[i][j] === data[i][j]
+      ) {
+        continue;
+      }
+
       context.beginPath();
       context.arc(
         j * size + halfSize * rem,
