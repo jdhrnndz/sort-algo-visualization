@@ -7,13 +7,10 @@ import SquareCanvas from './components/SquareCanvas';
 import CircleCanvas from './components/CircleCanvas';
 import HexCanvas from './components/HexCanvas';
 import randomShuffle from './utils/randomShuffle';
-import Stats from 'stats.js';
 
 const TILE_PER_ROW = 100;
 const TILE_SIZE = window.innerWidth / TILE_PER_ROW;
-const ROW_COUNT = Math.floor(window.innerHeight / TILE_SIZE);
-const stats = new Stats();
-stats.showPanel(0);
+const ROW_COUNT = Math.ceil(window.innerHeight / TILE_SIZE);
 
 const ARRANGEMENTS = {
   random: {
@@ -77,10 +74,6 @@ function App() {
     );
   }
 
-  React.useEffect(() => {
-    document.body.appendChild(stats.dom);
-  }, []);
-
   return (
     <div className="App">
       <div className="App-content">
@@ -117,7 +110,6 @@ function App() {
           canvas={data =>
             CANVASES[shape].component({ tileSize: TILE_SIZE, data })
           }
-          stats={stats}
         />
       </div>
     </div>
