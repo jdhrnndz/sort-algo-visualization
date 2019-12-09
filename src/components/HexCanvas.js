@@ -2,7 +2,7 @@ import React from 'react';
 
 function SquareCanvas(props) {
   let canvasRef = React.useRef(null);
-  let previousData = React.useRef(null);
+  let previousData = React.useRef([]);
 
   React.useEffect(() => {
     const data = JSON.parse(props.data);

@@ -1,4 +1,5 @@
 import randomShuffle from '../utils/randomShuffle';
+import isSorted from '../utils/isSorted';
 
 function* bogoSort(values) {
   while (!isSorted(values)) {
@@ -6,12 +7,4 @@ function* bogoSort(values) {
     yield values;
   }
 }
-
-function isSorted(values) {
-  for (let i = 0; i < values.length - 1; i++) {
-    if (values[i] > values[i + 1]) return false;
-  }
-  return true;
-}
-
 export default bogoSort;

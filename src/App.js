@@ -104,6 +104,16 @@ function App() {
             </select>
             <span className="Banner-content">data</span>
           </div>
+          <div>
+            <select
+              name="element"
+              id="element-select"
+              value={shape}
+              onChange={e => setShape(e.target.value)}
+            >
+              {canvasOptions}
+            </select>
+          </div>
         </div>
         <Animation
           sorters={setupSorters(sortAlgo, arrangement, ROW_COUNT, TILE_PER_ROW)}

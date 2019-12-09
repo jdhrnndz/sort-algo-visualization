@@ -2,7 +2,7 @@ import React from 'react';
 
 function SquareCanvas(props) {
   let canvasRef = React.useRef(null);
-  let previousData = React.useRef(null);
+  let previousData = React.useRef([]);
 
   React.useEffect(() => {
     const data = JSON.parse(props.data);
@@ -45,6 +45,7 @@ const draw = (canvasRef, previousData, data, size) => {
 
     for (let j = 0; j < dataCount; j++) {
       if (
+        !!previousData &&
         previousData.length === datasetCount &&
         previousData[i][j] === data[i][j]
       ) {

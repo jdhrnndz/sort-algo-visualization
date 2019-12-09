@@ -31,7 +31,8 @@
       }
     },
     "coverageReporters": [
-      "text"
+      "text",
+      "html"
     ]
   },
   "eslintConfig": {
@@ -50,6 +51,8 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "gh-pages": "^2.1.1"
   }
 }

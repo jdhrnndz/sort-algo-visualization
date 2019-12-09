@@ -26,3 +26,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
 }
+
+#element-select {
+  display: none;
+}
