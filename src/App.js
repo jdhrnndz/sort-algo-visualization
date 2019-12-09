@@ -138,7 +138,7 @@ function setupSorters(algo, arrangement, datasetCount, itemCount) {
   return sorterCollection;
 }
 
-function generateInitialData(arrangement, count) {
+export function generateInitialData(arrangement, count) {
   let number = 0;
   const initialData = ARRANGEMENTS[arrangement].fn(
     Array.from(Array(count), item => number++)

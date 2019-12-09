@@ -7,4 +7,5 @@ function* bogoSort(values) {
     yield values;
   }
 }
+
 export default bogoSort;
