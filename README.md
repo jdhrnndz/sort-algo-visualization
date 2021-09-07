@@ -1,3 +1,5 @@
+View at https://jdhrnndz.github.io/sort-algo-visualization/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
