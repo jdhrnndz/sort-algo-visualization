@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SquareCanvas(props) {
+function HexCanvas(props) {
   let canvasRef = React.useRef(null);
   let previousData = React.useRef([]);
 
@@ -63,4 +63,4 @@ const draw = (canvasRef, previousData, data, size) => {
   context.restore();
 };
 
-export default SquareCanvas;
+export default HexCanvas;
