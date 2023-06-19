@@ -45,7 +45,7 @@ const CANVASES = {
 function App() {
   const [sortAlgo, setSortAlgo] = React.useState('combsort');
   const [arrangement, setArrangement] = React.useState('random');
-  const [shape, setShape] = React.useState('circle');
+  const [shape, setShape] = React.useState('hex');
 
   const algoOptions = [];
   for (const key in sorters) {
