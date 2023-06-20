@@ -34,7 +34,10 @@ const draw = (canvasRef, previousData, data, size) => {
   context.strokeStyle = 'white';
 
   const halfSize = size / 2;
-  const hexSubpath = `l -${halfSize} ${halfSize} v ${halfSize} l ${halfSize} ${halfSize} l ${halfSize} -${halfSize} v -${halfSize} Z`;
+  const columnOffset = size / 4;
+  const rowOffset = size / 4;
+  const offset = size / 2;
+  const hexSubpath = `v ${halfSize} l ${halfSize} ${offset} l ${halfSize} -${offset} v -${halfSize} l -${halfSize} -${offset} Z`;
 
   for (let i = 0; i < datasetCount; i++) {
     if (!data[i]) continue;
@@ -50,7 +53,10 @@ const draw = (canvasRef, previousData, data, size) => {
         continue;
       }
 
-      const hexSVG = `M${j * size + halfSize * rem} ${i * size} ${hexSubpath}`;
+      const hexSVG = `M
+        ${j * size + halfSize * rem - columnOffset} ${i * size + rowOffset}
+        ${hexSubpath}
+      `;
       const hexPath = new Path2D(hexSVG);
 
       context.beginPath();

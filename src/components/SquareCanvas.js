@@ -31,6 +31,7 @@ const draw = (canvasRef, previousData, data, size) => {
 
   context.save();
   context.imageSmoothingEnabled = true;
+  context.strokeStyle = 'white';
 
   for (let i = 0; i < datasetCount; i++) {
     if (!data[i]) continue;
@@ -45,6 +46,7 @@ const draw = (canvasRef, previousData, data, size) => {
         continue;
       }
 
+      context.stroke();
       context.fillStyle = `hsl(${(data[i][j] / dataCount) * 320}, 65%, 55%)`;
       context.fillRect(j * size, i * size, size, size);
     }

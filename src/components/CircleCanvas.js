@@ -36,6 +36,7 @@ const draw = (canvasRef, previousData, data, size) => {
   const halfSize = size / 2;
   const paddedSize = halfSize - 2;
   const fullCircle = 2 * Math.PI;
+  const offset = halfSize / 2;
 
   for (let i = 0; i < datasetCount; i++) {
     if (!data[i]) continue;
@@ -54,7 +55,7 @@ const draw = (canvasRef, previousData, data, size) => {
 
       context.beginPath();
       context.arc(
-        j * size + halfSize * rem,
+        j * size + halfSize * rem + offset,
         i * size + halfSize,
         paddedSize,
         0,
