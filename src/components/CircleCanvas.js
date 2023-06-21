@@ -6,7 +6,7 @@ function CircleCanvas(props) {
 
   React.useEffect(() => {
     const data = JSON.parse(props.data);
-    draw(canvasRef, previousData.current, data, props.tileSize);
+    draw(canvasRef, previousData.current, data, props.tileSize, props.hslData);
     previousData.current = data;
   });
 
@@ -21,7 +21,7 @@ function CircleCanvas(props) {
   );
 }
 
-const draw = (canvasRef, previousData, data, size) => {
+const draw = (canvasRef, previousData, data, size, hslData) => {
   if (!data || data.length <= 0) return;
 
   const datasetCount = data.length;
@@ -33,16 +33,14 @@ const draw = (canvasRef, previousData, data, size) => {
   context.imageSmoothingEnabled = true;
   context.strokeStyle = 'white';
 
-  const halfSize = size / 2;
-  const paddedSize = halfSize - 2;
-  const fullCircle = 2 * Math.PI;
-  const offset = halfSize / 2;
+  const halfSize = Math.round(size / 2);
+  const radius = halfSize - 2;
+  const fullCircle = Math.round(2 * Math.PI);
 
   for (let i = 0; i < datasetCount; i++) {
     if (!data[i]) continue;
 
     const dataCount = data[i].length;
-    const rem = i % 2;
 
     for (let j = 0; j < dataCount; j++) {
       if (
@@ -55,14 +53,14 @@ const draw = (canvasRef, previousData, data, size) => {
 
       context.beginPath();
       context.arc(
-        j * size + halfSize * rem + offset,
+        j * size + halfSize,
         i * size + halfSize,
-        paddedSize,
+        radius,
         0,
         fullCircle
       );
       context.stroke();
-      context.fillStyle = `hsl(${(data[i][j] / dataCount) * 320}, 65%, 55%)`;
+      context.fillStyle = `hsl(${hslData[data[i][j]]}, 65%, 55%)`;
       context.fill();
     }
   }

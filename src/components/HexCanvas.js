@@ -6,7 +6,7 @@ function HexCanvas(props) {
 
   React.useEffect(() => {
     const data = JSON.parse(props.data);
-    draw(canvasRef, previousData.current, data, props.tileSize);
+    draw(canvasRef, previousData.current, data, props.tileSize, props.hslData);
     previousData.current = data;
   });
 
@@ -21,7 +21,7 @@ function HexCanvas(props) {
   );
 }
 
-const draw = (canvasRef, previousData, data, size) => {
+const draw = (canvasRef, previousData, data, size, hslData) => {
   if (!data || data.length <= 0) return;
 
   const datasetCount = data.length;
@@ -60,7 +60,7 @@ const draw = (canvasRef, previousData, data, size) => {
       const hexPath = new Path2D(hexSVG);
 
       context.beginPath();
-      context.fillStyle = `hsl(${(data[i][j] / dataCount) * 320}, 65%, 55%)`;
+      context.fillStyle = `hsl(${hslData[data[i][j]]}, 65%, 55%)`;
       context.fill(hexPath);
       context.stroke(hexPath);
     }
