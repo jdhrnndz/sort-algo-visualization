@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/sort-algo-visualization/static/css/main.365dd8f8.css",
-    "main.js": "/sort-algo-visualization/static/js/main.19c1477f.js",
+    "main.js": "/sort-algo-visualization/static/js/main.c2ef04d6.js",
     "index.html": "/sort-algo-visualization/index.html",
     "main.365dd8f8.css.map": "/sort-algo-visualization/static/css/main.365dd8f8.css.map",
-    "main.19c1477f.js.map": "/sort-algo-visualization/static/js/main.19c1477f.js.map"
+    "main.c2ef04d6.js.map": "/sort-algo-visualization/static/js/main.c2ef04d6.js.map"
   },
   "entrypoints": [
     "static/css/main.365dd8f8.css",
-    "static/js/main.19c1477f.js"
+    "static/js/main.c2ef04d6.js"
   ]
 }
