@@ -1,12 +1,8 @@
 import React from 'react';
-import './App.css';
-import partialShuffle from './utils/partialShuffle';
 import sorters from './sorters';
-import Animation from './components/Animation';
-import SquareCanvas from './components/SquareCanvas';
-import CircleCanvas from './components/CircleCanvas';
-import HexCanvas from './components/HexCanvas';
-import randomShuffle from './utils/randomShuffle';
+import { Animation, SquareCanvas, CircleCanvas, HexCanvas, TextSelect } from './components';
+import { generateHslData, partialShuffle, randomShuffle } from './utils';
+import './App.css';
 
 const TILE_PER_ROW = 100;
 const TILE_SIZE = window.innerWidth / TILE_PER_ROW;
@@ -45,34 +41,9 @@ const CANVASES = {
 function App() {
   const [sortAlgo, setSortAlgo] = React.useState('combsort');
   const [arrangement, setArrangement] = React.useState('random');
-  const [shape, setShape] = React.useState('circle');
+  const [shape, setShape] = React.useState('square');
 
-  const algoOptions = [];
-  for (const key in sorters) {
-    algoOptions.push(
-      <option value={key} key={sorters[key].title}>
-        {sorters[key].title}
-      </option>
-    );
-  }
-
-  const arrangementOptions = [];
-  for (const key in ARRANGEMENTS) {
-    arrangementOptions.push(
-      <option value={key} key={ARRANGEMENTS[key].title}>
-        {ARRANGEMENTS[key].title}
-      </option>
-    );
-  }
-
-  const canvasOptions = [];
-  for (const key in CANVASES) {
-    canvasOptions.push(
-      <option value={key} key={CANVASES[key].title}>
-        {CANVASES[key].title}
-      </option>
-    );
-  }
+  const hslData = generateHslData(TILE_PER_ROW);
 
   return (
     <div className="App">
@@ -82,44 +53,38 @@ function App() {
             A visualization of <em>sorts</em>
           </div>
           <div>
-            <span>using</span>
-            <select
-              name="sort-algo"
-              id="sort-algo-select"
+            <span>using </span>
+            <TextSelect
               value={sortAlgo}
-              onChange={e => setSortAlgo(e.target.value)}
-            >
-              {algoOptions}
-            </select>
+              options={sorters}
+              setValue={setSortAlgo}
+            />
           </div>
           <div>
-            <span className="Banner-content">with</span>
-            <select
-              name="arrangement"
-              id="arrangement-select"
+            <span className="Banner-content">with </span>
+            <TextSelect
               value={arrangement}
-              onChange={e => setArrangement(e.target.value)}
-            >
-              {arrangementOptions}
-            </select>
-            <span className="Banner-content">data</span>
+              options={ARRANGEMENTS}
+              setValue={setArrangement}
+            />
+            <span className="Banner-content"> data</span>
           </div>
           <div>
-            <select
-              name="element"
-              id="element-select"
+            <span className='Banner-content'>drawn as </span>
+            <TextSelect
               value={shape}
-              onChange={e => setShape(e.target.value)}
-            >
-              {canvasOptions}
-            </select>
+              options={CANVASES}
+              setValue={setShape}
+            />
+            <span className='Banner-content'> tiles.</span>
           </div>
         </div>
         <Animation
           sorters={setupSorters(sortAlgo, arrangement, ROW_COUNT, TILE_PER_ROW)}
           canvas={data =>
-            CANVASES[shape].component({ tileSize: TILE_SIZE, data })
+            CANVASES[shape].component({ tileSize: TILE_SIZE, data, hslData })
           }
+          hslData={hslData}
         />
       </div>
     </div>
