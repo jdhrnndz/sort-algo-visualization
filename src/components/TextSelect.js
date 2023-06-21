@@ -2,7 +2,11 @@ import React from 'react';
 
 function renderOptions(options, setValue) {
     return Object.entries(options).map(([key, value]) => (
-        <span className="dropdown__item" key={key} onClick={() => setValue(key)}>{value.title}</span>
+        <div key={key} onClick={() => setValue(key)}>
+            <span className="dropdown__item">
+                {value.title}
+            </span>
+        </div>
     ));
 }
 
