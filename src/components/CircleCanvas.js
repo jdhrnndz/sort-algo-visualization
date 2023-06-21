@@ -38,7 +38,7 @@ const draw = (canvasRef, previousData, data, size, hslData) => {
   const fullCircle = Math.round(2 * Math.PI);
 
   for (let i = 0; i < datasetCount; i++) {
-    if (!data[i]) continue;
+    if (!data || data.length <= 0 || !previousData[i] || previousData.length <= 0) continue;
 
     const dataCount = data[i].length;
 
