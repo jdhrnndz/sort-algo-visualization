@@ -40,13 +40,14 @@ const draw = (canvasRef, previousData, data, size, hslData) => {
   const hexSubpath = `v ${halfSize} l ${halfSize} ${offset} l ${halfSize} -${offset} v -${halfSize} l -${halfSize} -${offset} Z`;
 
   for (let i = 0; i < datasetCount; i++) {
-    if (!data || data.length <= 0) return;
+    if (!data[i] || data[i].length <= 0) return;
 
     const dataCount = data[i].length;
     const rem = i % 2;
 
     for (let j = 0; j < dataCount; j++) {
       if (
+        !!previousData &&
         previousData.length === datasetCount &&
         previousData[i][j] === data[i][j]
       ) {

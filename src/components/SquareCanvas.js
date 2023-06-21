@@ -34,12 +34,13 @@ const draw = (canvasRef, previousData, data, size, hslData) => {
   context.strokeStyle = 'white';
 
   for (let i = 0; i < datasetCount; i++) {
-    if (!data[i]) continue;
+    if (!data[i] || data[i].length <= 0) continue;
 
     const dataCount = data[i].length;
 
     for (let j = 0; j < dataCount; j++) {
       if (
+        !!previousData &&
         previousData.length === datasetCount &&
         previousData[i][j] === data[i][j]
       ) {
