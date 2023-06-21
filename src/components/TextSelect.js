@@ -10,7 +10,11 @@ function TextSelect(props) {
     const [expanded, setExpanded] = React.useState(false);
 
     return (
-        <div className={`dropdown ${expanded && 'dropdown--expanded'}`} onClick={() => setExpanded(!expanded)}>
+        <div className={`dropdown ${expanded && 'dropdown--expanded'}`}
+            tabIndex={props.tabIndex}
+            onClick={() => setExpanded(!expanded)}
+            onBlur={() => setExpanded(false)}
+        >
             <span className="dropdown__item--selected">{props.options[props.value].title}</span>
             {
                 expanded

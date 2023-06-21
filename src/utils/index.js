@@ -3,3 +3,4 @@ export { default as isSorted } from './isSorted';
 export { default as partialShuffle } from './partialShuffle';
 export { default as randomShuffle } from './randomShuffle';
 export { default as swap } from './swap';
+export { default as getTabIndex } from './tabIndexer';

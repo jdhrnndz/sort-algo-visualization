@@ -22,7 +22,7 @@ function SquareCanvas(props) {
 }
 
 const draw = (canvasRef, previousData, data, size, hslData) => {
-  if (!data || data.length <= 0 || !previousData || previousData.length <= 0) return;
+  if (!data || data.length <= 0) return;
 
   const datasetCount = data.length;
 

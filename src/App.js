@@ -1,7 +1,7 @@
 import React from 'react';
 import sorters from './sorters';
 import { Animation, SquareCanvas, CircleCanvas, HexCanvas, TextSelect } from './components';
-import { generateHslData, partialShuffle, randomShuffle } from './utils';
+import { generateHslData, partialShuffle, randomShuffle, getTabIndex } from './utils';
 import './App.css';
 
 const TILE_PER_ROW = 100;
@@ -58,6 +58,7 @@ function App() {
               value={sortAlgo}
               options={sorters}
               setValue={setSortAlgo}
+              tabIndex={getTabIndex()}
             />
           </div>
           <div>
@@ -66,6 +67,7 @@ function App() {
               value={arrangement}
               options={ARRANGEMENTS}
               setValue={setArrangement}
+              tabIndex={getTabIndex()}
             />
             <span className="Banner-content"> data</span>
           </div>
@@ -75,6 +77,7 @@ function App() {
               value={shape}
               options={CANVASES}
               setValue={setShape}
+              tabIndex={getTabIndex()}
             />
             <span className='Banner-content'> tiles.</span>
           </div>
