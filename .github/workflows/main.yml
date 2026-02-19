@@ -11,11 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-         repository: jdhrnndz/sort-algo-visualization
-         token: ${{ secrets.GH_PAT }}
+      - uses: actions/checkout@v6
 
       # - name: Setup git
       #   run: |
